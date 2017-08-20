@@ -12,34 +12,24 @@ build:
   number: 0
   # vc 9 probably need some patches, skipping it for now.
   skip: True  # [(win and py27) or (win and py36)]
-  features:
-    - vc14  # [win and (py35 or py36)]
 
 requirements:
   host:
-    - icu 58.*  # [not win]
-    - libiconv
+    - icu 58.*    # [not win]
+    - libiconv    # [not linux and not win]
     - zlib 1.2.*
-    - xz 5.2.*  # [not win]
+    - xz 5.2.*    # [not win]
 
   build:
-    - python  # [win]
-    - autoconf  # [not win]
-    - automake  # [not win]
-    - libtool  # [not win]
-    - pkg-config  # [not win]
-    - vc 9  # [win and py27]
-    - vc 10  # [win and py34]
-    - vc 14  # [win and py>=35]
     - {{ compiler('c') }}
-
-  run:
-    - icu 58.*  # [not win]
-    - libiconv 1.15
-    - zlib 1.2.11
-    - xz 5.2.*  # [not win]
-    - vc 9  # [win and py27]
-    - vc 14  # [win and (py35 or py36)]
+    - python      # [win]
+    - autoconf    # [not win]
+    - automake    # [not win]
+    - libtool     # [not win]
+    - pkg-config  # [not win]
+    - vc 9        # [win and py27]
+    - vc 10       # [win and py34]
+    - vc 14       # [win and py>=35]
 
 test:
   files:
@@ -66,5 +56,6 @@ extra:
   recipe-maintainers:
     - ocefpaf
     - jakirkham
+    - mingwandroid
     - gillins
     - jschueller
