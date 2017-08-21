@@ -9,6 +9,8 @@ fi
 ./autogen.sh
 
 ./configure --prefix="${PREFIX}" \
+            --build=$BUILD \
+            --host=$HOST \
             --with-iconv="${PREFIX}" \
             --with-zlib="${PREFIX}" \
             --with-icu \
