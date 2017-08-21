@@ -9,27 +9,24 @@ source:
   sha256: ff879b0d9142564bfe63df9753df936f05150afdd7bae07261f12d4dad33ba4a
 
 build:
-  number: 0
-  # vc 9 probably need some patches, skipping it for now.
-  skip: True  # [(win and py27) or (win and py36)]
+  number: 5
+  run_exports:
+    # remove symbols at minor versions.
+    #    https://abi-laboratory.pro/tracker/timeline/libxml2/
+    - {{ pin_subpackage('libxml2', max_pin='x.x') }}
 
 requirements:
   host:
-    - icu 58.*    # [not win]
-    - libiconv    # [not linux and not win]
-    - zlib 1.2.*
-    - xz 5.2.*    # [not win]
-
+    - icu         # [not win]
+    - libiconv    # [not win]
+    - zlib
+    - xz          # [not win]
   build:
     - {{ compiler('c') }}
-    - python      # [win]
     - autoconf    # [not win]
     - automake    # [not win]
     - libtool     # [not win]
     - pkg-config  # [not win]
-    - vc 9        # [win and py27]
-    - vc 10       # [win and py34]
-    - vc 14       # [win and py>=35]
 
 test:
   files:
@@ -44,7 +41,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: Copyright
-  summary: 'The XML C parser and toolkit of Gnome.'
+  summary: The XML C parser and toolkit of Gnome
   description: |
      Though libxml2 is written in C a variety of language
      bindings make it available in other environments.
@@ -59,3 +56,4 @@ extra:
     - mingwandroid
     - gillins
     - jschueller
+    - msarahan
