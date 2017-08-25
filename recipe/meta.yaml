@@ -5,7 +5,6 @@ package:
   version: {{ version }}
 
 source:
-  fn: libxml2-{{ version }}.tar.gz
   url: https://git.gnome.org/browse/libxml2/snapshot/libxml2-{{ version }}.tar.gz
   sha256: 1d5257abac02aab323bf6ab26199ce0bb2a7b798bb7acea302e136438237268a
   patches:
@@ -15,39 +14,43 @@ source:
     - fix-attribute-decoding-during-xml-schema-validation.patch
 
 build:
-  number: 4
-  skip: True  # [win and [py>35]
+  number: 5
   features:
-    - vc9   # [win and py27]
-    - vc10  # [win and py34]
-    - vc14  # [win and py>=35]
+    - vc{{ vc }}   # [win]
+  run_exports:
+    # remove symbols at minor versions.
+    #    https://abi-laboratory.pro/tracker/timeline/libxml2/
+    - {{ pin_subpackage('libxml2', max_pin='x.x') }}
 
 requirements:
   host:
-    - icu 58.*    # [not win]
-    - libiconv    # [not linux and not win]
-    - zlib 1.2.*
-    - xz 5.2.*    # [not win]
-
+    - icu         # [not win]
+    - libiconv    # [not win]
+    - zlib
+    - xz          # [not win]
   build:
     - {{ compiler('c') }}
-    - python      # [win]
     - autoconf    # [not win]
     - automake    # [not win]
     - libtool     # [not win]
     - pkg-config  # [not win]
-    - vc 9        # [win and py27]
-    - vc 10       # [win and py34]
-    - vc 14       # [win and py>=35]
-
   run:
-    - icu 58.*    # [not win]
-    - libiconv    # [not linux and not win]
-    - zlib 1.2.*
-    - xz 5.2.*    # [not win]
-    - vc 9        # [win and py27]
-    - vc 10       # [win and py34]
-    - vc 14       # [win and py35]
+    # icu removed here because package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/icu-feedstock/pull/1
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    #- icu
+    # iconv removed here because package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/libiconv-feedstock/pull/1
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - libiconv
+    # zlib removed here because zlib package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/zlib-feedstock/pull/2
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - zlib
+    # xz removed here because xz package has run_exports for itself
+    #    https://github.com/AnacondaRecipes/xz-feedstock/pull/2
+    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
+    # - xz 5.0.*  # [not win]
 
 test:
   files:
@@ -62,7 +65,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: Copyright
-  summary: 'The XML C parser and toolkit of Gnome.'
+  summary: The XML C parser and toolkit of Gnome
   description: |
      Though libxml2 is written in C a variety of language
      bindings make it available in other environments.
@@ -77,3 +80,4 @@ extra:
     - mingwandroid
     - gillins
     - jschueller
+    - msarahan
