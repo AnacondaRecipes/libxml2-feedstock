@@ -23,34 +23,22 @@ build:
     - {{ pin_subpackage('libxml2', max_pin='x.x') }}
 
 requirements:
-  host:
-    - icu         # [not win]
-    - libiconv    # [not win]
-    - zlib
-    - xz          # [not win]
+    - icu 58.*    # [not win]
+    - libiconv    # [not linux and not win]
+    - zlib 1.2.*
+    - xz 5.2.*    # [not win]
   build:
     - {{ compiler('c') }}
     - autoconf    # [not win]
     - automake    # [not win]
     - libtool     # [not win]
     - pkg-config  # [not win]
-  run:
-    # icu removed here because package has run_exports for itself
-    #    https://github.com/AnacondaRecipes/icu-feedstock/pull/1
-    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
-    #- icu
-    # iconv removed here because package has run_exports for itself
-    #    https://github.com/AnacondaRecipes/libiconv-feedstock/pull/1
-    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
-    # - libiconv
-    # zlib removed here because zlib package has run_exports for itself
-    #    https://github.com/AnacondaRecipes/zlib-feedstock/pull/2
-    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
-    # - zlib
-    # xz removed here because xz package has run_exports for itself
-    #    https://github.com/AnacondaRecipes/xz-feedstock/pull/2
-    # this req isn't actually necessary, as run_exports will add it.  Left here for reference.
-    # - xz 5.0.*  # [not win]
+  host:
+    - icu         # [not win]
+    - libiconv    # [not linux and not win]
+    - xz          # [not win]
+    - zlib
+
 
 test:
   files:
