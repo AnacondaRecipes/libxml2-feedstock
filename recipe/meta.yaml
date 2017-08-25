@@ -16,17 +16,17 @@ build:
     - {{ pin_subpackage('libxml2', max_pin='x.x') }}
 
 requirements:
-  host:
-    - icu         # [not win]
-    - libiconv    # [not win]
-    - zlib
-    - xz          # [not win]
   build:
     - {{ compiler('c') }}
     - autoconf    # [not win]
     - automake    # [not win]
     - libtool     # [not win]
     - pkg-config  # [not win]
+  host:
+    - icu         # [not win]
+    - libiconv    # [not linux and not win]
+    - xz          # [not win]
+    - zlib
 
 test:
   files:
