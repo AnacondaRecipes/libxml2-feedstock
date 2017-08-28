@@ -23,10 +23,6 @@ build:
     - {{ pin_subpackage('libxml2', max_pin='x.x') }}
 
 requirements:
-    - icu 58.*    # [not win]
-    - libiconv    # [not linux and not win]
-    - zlib 1.2.*
-    - xz 5.2.*    # [not win]
   build:
     - {{ compiler('c') }}
     - autoconf    # [not win]
@@ -38,7 +34,8 @@ requirements:
     - libiconv    # [not linux and not win]
     - xz          # [not win]
     - zlib
-
+  run:
+    - libiconv    # [not linux and not win]
 
 test:
   files:
