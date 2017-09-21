@@ -24,7 +24,7 @@ requirements:
     - pkg-config  # [not win]
   host:
     - icu         # [not win]
-    - libiconv    # [not linux and not win]
+    - libiconv    # [not linux]
     - xz          # [not win]
     - zlib
 
