@@ -9,14 +9,12 @@ source:
   sha256: 1d5257abac02aab323bf6ab26199ce0bb2a7b798bb7acea302e136438237268a
   patches:
     # Bug 767063 - Fix build of libxml2 2.9.4 (git master) on pre-C99 compilers.
-    - pre-c99.patch
+    - pre-c99.patch  # [win and vc < 14]
     # https://bugzilla.gnome.org/show_bug.cgi?id=766834
     - fix-attribute-decoding-during-xml-schema-validation.patch
 
 build:
-  number: 5
-  features:
-    - vc{{ vc }}   # [win]
+  number: 6
   run_exports:
     # remove symbols at minor versions.
     #    https://abi-laboratory.pro/tracker/timeline/libxml2/
@@ -34,8 +32,6 @@ requirements:
     - libiconv    # [not linux]
     - xz          # [not win]
     - zlib
-  run:
-    - libiconv    # [not linux]
 
 test:
   files:
