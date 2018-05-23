@@ -1,11 +1,5 @@
 #!/bin/bash
 
-if [[ $(uname) == Darwin ]]; then
-  export LIBRARY_SEARCH_VAR=DYLD_FALLBACK_LIBRARY_PATH
-elif [[ $(uname) == Linux ]]; then
-  export LIBRARY_SEARCH_VAR=LD_LIBRARY_PATH
-fi
-
 ./autogen.sh
 
 ./configure --prefix="${PREFIX}" \
@@ -17,5 +11,7 @@ fi
             --with-lzma="${PREFIX}" \
             --without-python
 make -j${CPU_COUNT} ${VERBOSE_AT}
-eval ${LIBRARY_SEARCH_VAR}=$PREFIX/lib make check
+if [[ ${target_platform} != osx-64 ]]; then
+  make check $VERBOSE_AT}
+fi
 make install

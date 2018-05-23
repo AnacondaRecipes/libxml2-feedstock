@@ -10,9 +10,10 @@ source:
   patches:
     # Some C99 that vs2008 can't cope with
     - 0001-C89-for-VS2008.patch
+    - 0004-CVE-2017-8872.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # remove symbols at minor versions.
     #    https://abi-laboratory.pro/tracker/timeline/libxml2/
