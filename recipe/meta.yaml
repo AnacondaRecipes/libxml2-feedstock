@@ -11,9 +11,11 @@ source:
     - 0002-Make-and-install-a-pkg-config-file-on-Windows.patch
     - 0004-CVE-2017-8872.patch
     - 0005-CVE-2019-20388.patch
+    - 0006-CVE-2020-24977.patch
+    - 0006-CVE-2020-7595.patch
 
 build:
-  number: 2
+  number: 3
   run_exports:
     # remove symbols at minor versions.
     #    https://abi-laboratory.pro/tracker/timeline/libxml2/
