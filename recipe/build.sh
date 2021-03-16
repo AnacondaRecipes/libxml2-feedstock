@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Add true as a compile definition
+export CFLAGS="${CFLAGS} -DTRUE=1"
+
 ./autogen.sh
 
 ./configure --prefix="${PREFIX}" \
