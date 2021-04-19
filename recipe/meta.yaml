@@ -15,7 +15,7 @@ source:
     - 0006-CVE-2020-7595.patch
 
 build:
-  number: 3
+  number: 4
   run_exports:
     # remove symbols at minor versions.
     #    https://abi-laboratory.pro/tracker/timeline/libxml2/
