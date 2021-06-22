@@ -1,4 +1,4 @@
-{% set version = "2.9.10" %}
+{% set version = "2.9.12" %}
 
 package:
   name: libxml2
@@ -6,16 +6,13 @@ package:
 
 source:
   url: http://xmlsoft.org/sources/libxml2-{{ version }}.tar.gz
-  sha256: aafee193ffb8fe0c82d4afef6ef91972cbaf5feea100edc2f262750611b4be1f
+  sha256: c8d6681e38c56f172892c85ddc0852e1fd4b53b4209e7f4ebf17f7e2eae71d92
   patches:
     - 0002-Make-and-install-a-pkg-config-file-on-Windows.patch
     - 0004-CVE-2017-8872.patch
-    - 0005-CVE-2019-20388.patch
-    - 0006-CVE-2020-24977.patch
-    - 0006-CVE-2020-7595.patch
 
 build:
-  number: 3
+  number: 0
   run_exports:
     # remove symbols at minor versions.
     #    https://abi-laboratory.pro/tracker/timeline/libxml2/
@@ -30,6 +27,7 @@ requirements:
     - pkg-config  # [not win]
     - make        # [not win]
     - m2-patch    # [win]
+    - patch       # [not win]
   host:
     - icu         # [not win]
     - libiconv    # [not linux]
