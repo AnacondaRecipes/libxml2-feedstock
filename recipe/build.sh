@@ -2,6 +2,9 @@
 
 ./autogen.sh
 
+export CFLAGS="${CFLAGS} -DTRUE=1"
+export CXXFLAGS="${CXXFLAGS} -DTRUE=1"
+
 ./configure --prefix="${PREFIX}" \
             --build=${BUILD} \
             --host=${HOST} \
