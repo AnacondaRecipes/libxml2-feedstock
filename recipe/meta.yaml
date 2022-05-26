@@ -1,19 +1,17 @@
-{% set version = "2.9.12" %}
+{% set version = "2.9.14" %}
 
 package:
   name: libxml2
   version: {{ version }}
 
 source:
-  url: http://xmlsoft.org/sources/libxml2-{{ version }}.tar.gz
-  sha256: c8d6681e38c56f172892c85ddc0852e1fd4b53b4209e7f4ebf17f7e2eae71d92
+  url: https://gitlab.gnome.org/GNOME/libxml2/-/archive/v{{ version }}/libxml2-v{{ version }}.tar.gz
+  sha256: 80efe9e6b48f8aa7b9b0c47be427e2ef2dbfb2999124220ffbc0f43ca6adb98c
   patches:
     - 0002-Make-and-install-a-pkg-config-file-on-Windows.patch
-    - 0003-CVE-2022-23308.patch
-    - 0004-CVE-2022-29824.patch
 
 build:
-  number: 2
+  number: 0
   run_exports:
     # remove symbols at minor versions.
     #    https://abi-laboratory.pro/tracker/timeline/libxml2/
@@ -48,7 +46,7 @@ test:
     - conda inspect objects -p $PREFIX libxml2  # [osx]
 
 about:
-  home: http://xmlsoft.org/
+  home: https://gitlab.gnome.org/GNOME/libxml2/
   license: MIT
   license_family: MIT
   license_file: Copyright
@@ -56,9 +54,8 @@ about:
   description: |
      Though libxml2 is written in C a variety of language
      bindings make it available in other environments.
-  doc_url: http://xmlsoft.org/html/index.html
-  doc_source_url: https://github.com/GNOME/libxml2/blob/master/doc/index.html
-  dev_url: https://git.gnome.org/browse/libxml2/
+  doc_url: https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home
+  dev_url: https://gitlab.gnome.org/GNOME/libxml2/
 
 extra:
   recipe-maintainers:
