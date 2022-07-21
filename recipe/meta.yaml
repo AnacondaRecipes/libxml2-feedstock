@@ -16,6 +16,8 @@ build:
     # remove symbols at minor versions.
     #    https://abi-laboratory.pro/tracker/timeline/libxml2/
     - {{ pin_subpackage('libxml2', max_pin='x.x') }}
+  ignore_run_exports:
+    - icu
 
 requirements:
   build:
