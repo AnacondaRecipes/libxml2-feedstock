@@ -29,11 +29,14 @@ requirements:
     - patch       # [not win]
   host:
     # solve icu dependency conflicts
-    - icu =68.1         # [not win]
-    - libiconv    # [not linux]
-    - xz          # [not win]
-    - xz >=5.2.5
-    - zlib
+    - icu=68.1         # [not win]
+    # test to resolve dependency conflict
+#    - libiconv    # [not linux]
+    - libiconv =1.16   # [not linux]
+#    - xz          # [not win]
+    - xz =5.2.10
+#    - zlib
+    - zlib =1.2.13
   run:
     - libiconv    # [not linux]
 
