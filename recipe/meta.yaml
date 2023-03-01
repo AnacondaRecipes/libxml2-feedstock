@@ -30,8 +30,10 @@ requirements:
   host:
     - icu         # [not win]
     - libiconv    # [not linux]
-    - xz          # [not win]
-    - zlib
+#    - xz          # [not win]
+    - xz >=5.2.5
+#    - zlib
+    - zlib >=1.2.11
   run:
     - libiconv    # [not linux]
 
