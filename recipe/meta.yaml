@@ -28,12 +28,12 @@ requirements:
     - m2-patch    # [win]
     - patch       # [not win]
   host:
-    - icu         # [not win]
+    # solve icu dependency conflicts
+    - icu =68.1         # [not win]
     - libiconv    # [not linux]
-#    - xz          # [not win]
+    - xz          # [not win]
     - xz >=5.2.5
-#    - zlib
-    - zlib >=1.2.11
+    - zlib
   run:
     - libiconv    # [not linux]
 
