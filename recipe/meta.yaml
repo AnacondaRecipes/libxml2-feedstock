@@ -20,25 +20,21 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - autoconf ==2.71   # [not win]
-    - automake ==1.16.5   # [not win]
-    - libtool  ==2.4.6   # [not win]
+    - autoconf   # [not win]
+    - automake   # [not win]
+    - libtool   # [not win]
     - pkg-config  # [not win]
     - make      # [not win]
     - m2-patch    # [win]
-    - patch ==2.7.6      # [not win]
+    - patch      # [not win]
   host:
-    # solve icu dependency conflicts
-    - icu ==68.1         # [not win]
+    - icu         # [not win]
     # test to resolve dependency conflict
-#    - libiconv    # [not linux]
-    - libiconv ==1.16   # [not linux]
-#    - xz          # [not win]
-    - xz ==5.2.10
-#    - zlib
-    - zlib ==1.2.13
+    - libiconv    # [not linux]
+    - xz          # [not win]
+    - zlib
   run:
-    - libiconv ==1.16   # [not linux]
+    - libiconv   # [not linux]
 
 test:
   files:
