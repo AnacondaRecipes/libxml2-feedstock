@@ -29,7 +29,6 @@ requirements:
     - patch      # [not win]
   host:
     - icu         # [not win]
-    # test to resolve dependency conflict
     - libiconv    # [not linux]
     - xz          # [not win]
     - zlib
@@ -39,12 +38,8 @@ requirements:
 test:
   files:
     - test.xml
-#  requires:
-#    - conda-build
   commands:
     - xmllint test.xml
-#    - conda inspect linkages -p $PREFIX libxml2  # [not win]
-#    - conda inspect objects -p $PREFIX libxml2  # [osx]
 
 about:
   home: https://gitlab.gnome.org/GNOME/libxml2/
