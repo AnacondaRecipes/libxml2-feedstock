@@ -32,7 +32,7 @@ requirements:
     - xz {{xz}}         # [not win]
     - zlib {{zlib}}
   run:
-    - libiconv 1.16  # [not linux]
+    - libiconv  # [not linux]
 
 test:
   files:
