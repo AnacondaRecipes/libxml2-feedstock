@@ -28,11 +28,11 @@ requirements:
     - m2-patch    # [win]
   host:
     - icu {{icu}}         # [not win]
-    - libiconv    # [not linux]
+    - libiconv 1.16   # [not linux]
     - xz {{xz}}         # [not win]
     - zlib {{zlib}}
   run:
-    - libiconv   # [not linux]
+    - libiconv 1.16  # [not linux]
 
 test:
   files:
