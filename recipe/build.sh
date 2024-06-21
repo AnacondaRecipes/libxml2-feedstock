@@ -20,7 +20,7 @@ export CXXFLAGS="${CXXFLAGS} -DTRUE=1"
 make -j${CPU_COUNT} ${VERBOSE_AT}
 
 if [[ ${target_platform} != osx-64 ]]; then
-  make check $VERBOSE_AT}
+  make check {$VERBOSE_AT}
 fi
 
 make install
