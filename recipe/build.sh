@@ -15,6 +15,7 @@ export CXXFLAGS="${CXXFLAGS} -DTRUE=1"
             --with-icu \
             --with-lzma="${PREFIX}" \
             --without-python \
+            --with-legacy \
             --enable-static=no
 make -j${CPU_COUNT} ${VERBOSE_AT}
 
