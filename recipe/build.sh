@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export NOCONFIGURE=1
 ./autogen.sh
 
 export CFLAGS="${CFLAGS} -DTRUE=1"
@@ -12,7 +13,7 @@ export CXXFLAGS="${CXXFLAGS} -DTRUE=1"
             --with-zlib="${PREFIX}" \
             --with-icu \
             --with-lzma="${PREFIX}" \
-            --with-python=no \
+            --without-python \
             --enable-static=no
 make -j${CPU_COUNT} ${VERBOSE_AT}
 
