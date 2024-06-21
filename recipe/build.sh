@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#./autogen.sh will run configure unless you tell it not to.
 export NOCONFIGURE=1
 ./autogen.sh
 
