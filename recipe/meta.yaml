@@ -9,10 +9,9 @@ source:
   sha256: cfe1efaeafe9da14bd98d1b9257611c0decc7a2080d7535392e22b8deeeaed10
   patches:
     - 0002-Make-and-install-a-pkg-config-file-on-Windows.patch  # [win]
-    - 0003-CVE-2024-25062.patch
 
 build:
-  number: 2
+  number: 0
   run_exports:
     # remove symbols at minor versions.
     #    https://abi-laboratory.pro/tracker/timeline/libxml2/
