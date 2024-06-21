@@ -18,6 +18,10 @@ export CXXFLAGS="${CXXFLAGS} -DTRUE=1"
             --enable-static=no
 make -j${CPU_COUNT} ${VERBOSE_AT}
 
+if [[ ${target_platform} != osx-64 ]]; then
+  make check $VERBOSE_AT}
+fi
+
 make install
 
 # Remove large documentation files that can take up to 6.6/9.2MB of the install
