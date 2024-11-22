@@ -1,4 +1,4 @@
-{% set version = "2.13.1" %}
+{% set version = "2.13.5" %}
 
 package:
   name: libxml2
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://gitlab.gnome.org/GNOME/libxml2/-/archive/v{{ version }}/libxml2-v{{ version }}.tar.gz
-  sha256: d1d90c6cecedd4a572af7aef6606bc7a1b38bcc09deef182dd065685fbd8de3f
+  sha256: 37cdec8cd20af8ab0decfa2419b09b4337c2dbe9da5615d2a26f547449fecf2a
   patches:
     - 0002-Make-and-install-a-pkg-config-file-on-Windows.patch  # [win]
 
 build:
-  number: 2
+  number: 0
   run_exports:
     # remove symbols at minor versions.
     #    https://abi-laboratory.pro/tracker/timeline/libxml2/
