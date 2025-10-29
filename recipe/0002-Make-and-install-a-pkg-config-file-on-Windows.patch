@@ -1,7 +1,7 @@
 From f90d931fa6f400065189b44d00273979709c700b Mon Sep 17 00:00:00 2001
 From: Peter Williams <peter@newton.cx>
 Date: Wed, 5 Sep 2018 16:50:54 -0400
-Subject: [PATCH] Make and install a pkg-config file on Windows.
+Subject: [PATCH] Make and install a pkg-config file on Windows
 
 ---
  win32/Makefile.msvc | 18 +++++++++++++++++-
