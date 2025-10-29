@@ -1,0 +1,5 @@
+# to work around libxml2 cannot depend on itself
+c_compiler:
+  - clang_bootstrap            # [osx]
+cxx_compiler:
+  - clang_bootstrap            # [osx]
