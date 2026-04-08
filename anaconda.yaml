@@ -3,3 +3,4 @@ upstream_sources:
   - gitlab:
       identifier: GNOME/libxml2
       host: gitlab.gnome.org
+      use_max_tag: true
