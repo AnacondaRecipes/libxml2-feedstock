@@ -4,3 +4,6 @@ upstream_sources:
       identifier: GNOME/libxml2
       host: gitlab.gnome.org
       use_max_tag: true
+      exclude_regex: (?i)(?:^|[-._])(?:rc\d*|alpha\d*|beta\d*|pre\d+|preview|dev\d+)(?:[-._]|$)
+      from_pattern: ^v?(\d+(?:\.\d+)*.*)$
+      to_pattern: \1
