@@ -1,0 +1,6 @@
+upload_channels:
+  - marekw
+channels:
+  - marekw
+
+upload_without_merge: True
