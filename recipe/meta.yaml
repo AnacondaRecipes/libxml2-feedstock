@@ -8,8 +8,6 @@ package:
 source:
   url: https://gitlab.gnome.org/GNOME/{{ name }}/-/archive/v{{ version }}/{{ name }}-v{{ version }}.tar.gz
   sha256: 0da50c1415f4ec0364569d2119b1436ba837b31df44af28569d234272c23cf1f
-  patches:
-    - 0002-Make-and-install-a-pkg-config-file-on-Windows.patch  # [win]
 
 build:
   number: 0
