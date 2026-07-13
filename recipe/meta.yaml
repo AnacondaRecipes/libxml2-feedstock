@@ -31,6 +31,9 @@ requirements:
     - xz {{ xz }}       # [not win]
     - zlib {{ zlib }}
   run:
+    - icu                         # pinned through run_exports
+    - xz                          # pinned through run_exports
+    - libzlib                     # pinned through run_exports
     - libiconv  # [not linux]
 
 test:
