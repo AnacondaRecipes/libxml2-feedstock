@@ -28,11 +28,9 @@ requirements:
   host:
     - icu {{ icu }}     # [not win]
     - libiconv 1.16   # [not linux]
-    - xz {{ xz }}       # [not win]
-    - zlib {{ zlib }}
+    - zlib {{ zlib }}   # [not win]
   run:
     - icu                         # pinned through run_exports
-    - xz                          # pinned through run_exports
     - libzlib                     # pinned through run_exports
     - libiconv  # [not linux]
 
@@ -43,7 +41,7 @@ test:
     - xmllint test.xml
 
 about:
-  home: https://gitlab.gnome.org/GNOME/libxml2/
+  home: https://gitlab.gnome.org/GNOME/libxml2
   license: MIT
   license_family: MIT
   license_file: Copyright
@@ -52,7 +50,7 @@ about:
      Though libxml2 is written in C a variety of language
      bindings make it available in other environments.
   doc_url: https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home
-  dev_url: https://gitlab.gnome.org/GNOME/libxml2/
+  dev_url: https://gitlab.gnome.org/GNOME/libxml2
 
 extra:
   recipe-maintainers:
