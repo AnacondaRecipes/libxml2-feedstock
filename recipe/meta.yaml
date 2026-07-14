@@ -30,8 +30,8 @@ requirements:
     - libiconv 1.16   # [not linux]
     - zlib {{ zlib }}   # [not win]
   run:
-    - icu                         # pinned through run_exports
-    - libzlib                     # pinned through run_exports
+    - icu       # [not win]       # pinned through run_exports
+    - libzlib   # [not win]       # pinned through run_exports
     - libiconv  # [not linux]
 
 test:
