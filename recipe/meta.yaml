@@ -1,4 +1,4 @@
-{% set version = "2.14.6" %}
+{% set version = "2.15.3" %}
 {% set name = "libxml2" %}
 
 package:
@@ -7,12 +7,10 @@ package:
 
 source:
   url: https://gitlab.gnome.org/GNOME/{{ name }}/-/archive/v{{ version }}/{{ name }}-v{{ version }}.tar.gz
-  sha256: 673003215497c5f7666cb95374e49a33abe25480bae8029de8c0e24b0927e743
-  patches:
-    - 0002-Make-and-install-a-pkg-config-file-on-Windows.patch  # [win]
+  sha256: 0da50c1415f4ec0364569d2119b1436ba837b31df44af28569d234272c23cf1f
 
 build:
-  number: 1
+  number: 0
   run_exports:
     # remove symbols at minor versions.
     #    https://abi-laboratory.pro/tracker/timeline/libxml2/
@@ -30,9 +28,10 @@ requirements:
   host:
     - icu {{ icu }}     # [not win]
     - libiconv 1.16   # [not linux]
-    - xz {{ xz }}       # [not win]
-    - zlib {{ zlib }}
+    - zlib {{ zlib }}   # [not win]
   run:
+    - icu       # [not win]       # pinned through run_exports
+    - libzlib   # [not win]       # pinned through run_exports
     - libiconv  # [not linux]
 
 test:
@@ -42,7 +41,7 @@ test:
     - xmllint test.xml
 
 about:
-  home: https://gitlab.gnome.org/GNOME/libxml2/
+  home: https://gitlab.gnome.org/GNOME/libxml2
   license: MIT
   license_family: MIT
   license_file: Copyright
@@ -51,7 +50,7 @@ about:
      Though libxml2 is written in C a variety of language
      bindings make it available in other environments.
   doc_url: https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home
-  dev_url: https://gitlab.gnome.org/GNOME/libxml2/
+  dev_url: https://gitlab.gnome.org/GNOME/libxml2
 
 extra:
   recipe-maintainers:

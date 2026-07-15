@@ -13,7 +13,7 @@ export CXXFLAGS="${CXXFLAGS} -DTRUE=1"
             --with-iconv="${PREFIX}" \
             --with-zlib="${PREFIX}" \
             --with-icu \
-            --with-lzma="${PREFIX}" \
+            --with-schematron=yes \
             --without-python \
             --with-legacy \
             --enable-static=no
