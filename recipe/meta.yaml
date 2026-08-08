@@ -27,6 +27,7 @@ requirements:
     - libtool   # [not win]
     - pkg-config  # [not win]
     - make      # [not win]
+    - cmake  # [win]
   host:
     - icu {{ icu }}     # [not win]
     - libiconv 1.16   # [not linux]
